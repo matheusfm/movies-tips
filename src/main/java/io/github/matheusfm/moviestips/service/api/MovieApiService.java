@@ -15,6 +15,9 @@ import org.springframework.web.client.RestTemplate;
  */
 @Service
 public class MovieApiService extends BaseApiService {
+    /**
+     * Variável de ambiente API_MOVIE_APIKEY
+     */
     private final String apiKey;
     private final String lang;
 

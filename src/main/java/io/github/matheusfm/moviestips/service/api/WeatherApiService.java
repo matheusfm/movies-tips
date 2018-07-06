@@ -12,6 +12,9 @@ import org.springframework.web.client.RestTemplate;
  */
 @Service
 public class WeatherApiService extends BaseApiService {
+    /**
+     * Variável de ambiente API_WEATHER_APIKEY
+     */
     private final String apiKey;
     private final String lang;
     private final String units;
