@@ -32,6 +32,7 @@ public class ErrorHandler {
         return buildErrorResponse(e, message);
     }
 
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public Map<String, String> typeParameter(MethodArgumentTypeMismatchException e) {
         String message = String.format("O parâmetro %s deve ser do tipo %s.", e.getName(), e.getRequiredType().getSimpleName());
