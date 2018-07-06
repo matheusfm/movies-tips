@@ -1,11 +1,15 @@
 package io.github.matheusfm.moviestips.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.function.IntPredicate;
 import java.util.stream.Stream;
 
 /**
  * Enum de gênero com o ID e a regra a partir da temperatura
  */
+@AllArgsConstructor
 public enum GenreByTemperature {
     ACTION(28, temp -> temp > 40),
     COMEDY(35, temp -> temp > 35 && temp <= 40),
@@ -13,13 +17,9 @@ public enum GenreByTemperature {
     THRILLER(53, temp -> temp > 0 && temp <= 20),
     DOCUMENTARY(99, temp -> temp <= 0);
 
+    @Getter
     private int id;
     private IntPredicate predicate;
-
-    GenreByTemperature(int id, IntPredicate predicate) {
-        this.id = id;
-        this.predicate = predicate;
-    }
 
     public static Integer of(Integer temperature) {
         return Stream.of(values())
@@ -27,9 +27,5 @@ public enum GenreByTemperature {
                 .findFirst()
                 .map(GenreByTemperature::getId)
                 .get();
-    }
-
-    private int getId() {
-        return id;
     }
 }

@@ -1,9 +1,13 @@
 package io.github.matheusfm.moviestips.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.Collection;
 
+@ToString
+@EqualsAndHashCode
 public class Page<T> {
     private Integer page;
     private Integer totalPages;

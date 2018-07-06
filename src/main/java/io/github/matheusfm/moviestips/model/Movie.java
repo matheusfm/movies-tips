@@ -3,12 +3,16 @@ package io.github.matheusfm.moviestips.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Collection;
 
 @JsonPropertyOrder(alphabetic=true)
+@ToString
+@EqualsAndHashCode
 public class Movie {
     private String backdropPath;
     private Collection<Genre> genres;
