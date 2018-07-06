@@ -5,7 +5,7 @@ movie tips based on the temperature of a location
 ## doc
 Swagger spec: https://movies-tips.herokuapp.com/v2/api-docs
 
-Swagger UI: https://movies-tips.herokuapp.com/swagger-ui.htm
+Swagger UI: https://movies-tips.herokuapp.com/swagger-ui.html
 
 ## run configration
 set your API keys in the `src/main/resources/application.properties` file.
