@@ -10,7 +10,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -23,16 +22,8 @@ public class MoviesTipsControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private MoviesTipsController controller;
-
     @Test
-    public void contextLoads() throws Exception {
-        assertNotNull(controller);
-    }
-
-    @Test
-    public void defaultPage() throws Exception {
+    public void shouldBeReturnSuccessWithDefaultPage() throws Exception {
         mockMvc.perform(get("/tips/movies")
                 .param("latitude", "-20.63")
                 .param("longitude", "-49.65"))
@@ -42,7 +33,7 @@ public class MoviesTipsControllerTest {
     }
 
     @Test
-    public void requiredParameter() throws Exception {
+    public void shouldBeReturnRequiredParameterError() throws Exception {
         mockMvc.perform(get("/tips/movies")
                 .param("longitude", "-49.65"))
                 .andExpect(status().isBadRequest())
@@ -50,11 +41,11 @@ public class MoviesTipsControllerTest {
     }
 
     @Test
-    public void parameterType() throws Exception {
+    public void shouldBeReturnParameterTypeError() throws Exception {
         mockMvc.perform(get("/tips/movies")
                 .param("latitude", "-20.63")
                 .param("longitude", "STRING"))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message", containsString("longitude deve ser do tipo Double")));
+                .andExpect(jsonPath("$.message", containsString("longitude deve ser do tipo")));
     }
 }
