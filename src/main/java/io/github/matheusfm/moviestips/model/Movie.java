@@ -3,6 +3,8 @@ package io.github.matheusfm.moviestips.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,6 +15,7 @@ import java.util.Collection;
 @JsonPropertyOrder(alphabetic=true)
 @ToString
 @EqualsAndHashCode
+@ApiModel
 public class Movie {
     private String backdropPath;
     private Collection<Genre> genres;
@@ -28,6 +31,7 @@ public class Movie {
     private Float voteAverage;
     private Integer voteCount;
 
+    @ApiModelProperty(notes = "backdrop path", example = "http://image.tmdb.org/t/p/original/mabuNsGJgRuCTuGqjFkWe1xdu19.jpg")
     @JsonProperty("backdropPath")
     public String getBackdropPath() {
         return backdropPath;
@@ -38,6 +42,7 @@ public class Movie {
         this.backdropPath = backdropPath;
     }
 
+    @ApiModelProperty(notes = "genres")
     public Collection<Genre> getGenres() {
         return genres;
     }
@@ -56,6 +61,7 @@ public class Movie {
         this.genreIds = genreIds;
     }
 
+    @ApiModelProperty(notes = "id", example = "260513")
     public Integer getId() {
         return id;
     }
@@ -64,6 +70,7 @@ public class Movie {
         this.id = id;
     }
 
+    @ApiModelProperty(notes = "original language", example = "en")
     @JsonProperty("originalLanguage")
     public String getOriginalLanguage() {
         return originalLanguage;
@@ -74,6 +81,7 @@ public class Movie {
         this.originalLanguage = originalLanguage;
     }
 
+    @ApiModelProperty(notes = "original title", example = "Incredibles 2")
     @JsonProperty("originalTitle")
     public String getOriginalTitle() {
         return originalTitle;
@@ -84,6 +92,7 @@ public class Movie {
         this.originalTitle = originalTitle;
     }
 
+    @ApiModelProperty(notes = "overview", example = "A família de super-heróis favorita de todo mundo está de volta em Os Incríveis 2 — mas dessa vez ...")
     public String getOverview() {
         return overview;
     }
@@ -92,6 +101,7 @@ public class Movie {
         this.overview = overview;
     }
 
+    @ApiModelProperty(notes = "poster path", example = "http://image.tmdb.org/t/p/original/y3EEb7o6NxK0pl0WsOswCos663y.jpg")
     @JsonProperty("posterPath")
     public String getPosterPath() {
         return posterPath;
@@ -102,6 +112,7 @@ public class Movie {
         this.posterPath = posterPath;
     }
 
+    @ApiModelProperty(notes = "release date", example = "2018-06-14")
     @JsonProperty("releaseDate")
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -112,6 +123,7 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
+    @ApiModelProperty(notes = "title", example = "Os Incríveis 2")
     public String getTitle() {
         return title;
     }
@@ -120,6 +132,7 @@ public class Movie {
         this.title = title;
     }
 
+    @ApiModelProperty(notes = "vote average", example = "7.7")
     @JsonProperty("voteAverage")
     public Float getVoteAverage() {
         return voteAverage;
@@ -135,6 +148,7 @@ public class Movie {
         return voteCount;
     }
 
+    @ApiModelProperty(notes = "vote count", example = "676")
     @JsonProperty("vote_count")
     public void setVoteCount(Integer voteCount) {
         this.voteCount = voteCount;
