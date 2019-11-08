@@ -1,5 +1,5 @@
 language: java
-jdk: oraclejdk8
+jdk: openjdk8
 
 script:
 - ./mvnw clean install -B
@@ -8,4 +8,3 @@ deploy:
   provider: heroku
   api_key: $HEROKU_APIKEY
   app: movies-tips
-  strategy: git
